@@ -1,7 +1,12 @@
 package com.certifai.CertifAI.domain.users;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
+import java.util.Optional;
 
-public interface UserRepository extends CrudRepository<User, Long> {
-    boolean existsByEmail(String email);
+public interface UserRepository {
+    Optional<User> existsByEmail(String email);
+    List<User> findAll();
+    Optional<User> findById(Long id);
+    void deleteUserById(Long id);
+    User save(User user);
 }
